@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Modal, Form, Input, InputNumber } from 'antd';
+import {Modal, Form, Input, InputNumber } from 'antd';
 
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
   // eslint-disable-next-line
