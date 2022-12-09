@@ -19,7 +19,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-          
+
       - name: Dependecies
         run: npm install
       
@@ -34,5 +34,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: sidestepper/thomas${{ steps.meta.outputs.tags }}
+          labels: sidestepper/thomas${{ steps.meta.outputs.labels }}
