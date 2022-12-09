@@ -23,8 +23,10 @@ jobs:
     - name: Login to DockerHub Registry
       run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
     
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag sidestepper/thomas:${{steps.version.outputs.tag}}
-
-    - name: Push to Docker Hub
-      run: docker push sidestepper/thomas:${{steps.version.outputs.tag}}
+   - name: Build and push Docker images
+     uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+     with:
+      context: .
+      push: true
+      tags: ${{ steps.meta.outputs.tags }}
+      labels: ${{ steps.meta.outputs.labels }}
